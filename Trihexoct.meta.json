@@ -16,7 +16,7 @@
   "last_output_delta_gate_passed": true,
   "last_output_delta_ratio": 0.0,
   "output": "Trihexoct.txt",
-  "output_sha256": "7c27513ffee2d8895326c2148061621ca447c32360c34746e0c32c91a4eea48f",
+  "output_sha256": "0f88a601ddaa5122c80107cac852db9a2f3a5783744f298475043e7194b6e9da",
   "overlap_policy_version": "2.1",
   "project_version": "2.0.0-alpha.5",
   "published_rule_categories": {

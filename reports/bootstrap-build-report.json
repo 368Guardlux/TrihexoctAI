@@ -14,7 +14,7 @@
   "feed_count_anomalies": [],
   "feed_retries": 0,
   "fetch_workers": 0,
-  "generated_at_utc": "2026-11-08T20:41:45Z",
+  "generated_at_utc": "2026-11-08T23:30:57Z",
   "manual_anomaly_override_used": false,
   "manual_output_delta_override_used": false,
   "note": "Offline build does not claim online overlap analysis. Filter syntax lint is not a browser engine parser or live-site test.",
@@ -34,7 +34,7 @@
     "removed_count": 0,
     "removed_examples": []
   },
-  "output_sha256": "7c27513ffee2d8895326c2148061621ca447c32360c34746e0c32c91a4eea48f",
+  "output_sha256": "0f88a601ddaa5122c80107cac852db9a2f3a5783744f298475043e7194b6e9da",
   "overlap_policy_version": "2.1",
   "overlap_removal_examples": [],
   "project_version": "2.0.0-alpha.5",

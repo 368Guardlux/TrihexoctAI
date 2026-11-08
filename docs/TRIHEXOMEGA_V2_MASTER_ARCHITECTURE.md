@@ -2,7 +2,7 @@
 
 ## 1. Mission
 
-TRIHEXΩ extends the deterministic Trihexoct Guardlux filter project with evidence-driven maintenance, supervised learning diagnostics, bounded language-model review, source-drift screening, and a controlled evolution backlog. Its target is reliable filtering with minimal collateral damage—not the largest possible blocklist, unrestricted autonomy, or claims of artificial general intelligence.
+TRIHEXΩ extends the deterministic TrihexoctAI / Guardlux filter project with evidence-driven maintenance, supervised learning diagnostics, bounded language-model review, source-drift screening, and a controlled evolution backlog. Its target is reliable filtering with minimal collateral damage—not the largest possible blocklist, unrestricted autonomy, or claims of artificial general intelligence.
 
 **Core invariant:** no AI, discovery, learning, or evolution-planning component can directly modify production rules, policies, trusted source identities, release thresholds, permissions, or published artifacts.
 

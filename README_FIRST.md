@@ -1,6 +1,6 @@
-# TRIHEXΩ v2.0.0-alpha.5 — Read this first
+# TrihexoctAI — TRIHEXΩ v2.0.0-alpha.5 — Read this first
 
-This is the **complete Trihexoct Guardlux development project**, not a loose overlay. Extract the archive, open the single project folder, and upload the contents inside it to a separate GitHub development branch. Preserve `.github/`, `config/`, `docs/`, `reports/`, `src/`, `tests/`, and `tools/`.
+This is the **complete TrihexoctAI / Guardlux TRIHEXΩ development project**, not a loose overlay. Extract the archive, open the single `TrihexoctAI` project folder, and upload the contents inside it to a development branch in the separate `368Guardlux/TrihexoctAI` repository. Do not upload this project into the original `368Guardlux/Trihexoct` repository. Preserve `.github/`, `config/`, `docs/`, `reports/`, `src/`, `tests/`, and `tools/`.
 
 ## Main additions in alpha.5
 

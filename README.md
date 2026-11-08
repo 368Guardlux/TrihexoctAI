@@ -1,8 +1,9 @@
-# Trihexoct Guardlux — TRIHEXΩ v2.0.0-alpha.5
+# TrihexoctAI — Guardlux TRIHEXΩ v2.0.0-alpha.5
 
 **Project version:** `2.0.0-alpha.5`  
 **Release channel:** Development alpha / integration preview  
-**Stable production subscription:** `https://raw.githubusercontent.com/368Guardlux/TrihexoctAI/main/Trihexoct.txt`       
+**v2 alpha subscription (development/testing only):** `https://raw.githubusercontent.com/368Guardlux/TrihexoctAI/main/Trihexoct.txt`  
+**Previous stable v1.3.2 subscription:** `https://raw.githubusercontent.com/368Guardlux/Trihexoct/main/Trihexoct.txt`  
 **Target filtering engine:** Brave Shields / supported ABP-style filtering syntax
 
 TRIHEXΩ is an expanded, evidence-driven maintenance and assurance architecture around the existing deterministic Trihexoct filter project. Alpha.5 preserves the v1.3.2 source modules and the 833-rule authored baseline while adding human-feedback diagnostics, source-drift screening, adaptive review triage, and a deterministic engineering-evolution planner.
@@ -11,7 +12,7 @@ TRIHEXΩ is an expanded, evidence-driven maintenance and assurance architecture 
 
 ## 1. What this project does
 
-Trihexoct Guardlux is a supplementary filter-list project. Its deterministic builder normalizes, audits, validates, and compiles curated source modules into a published filter list. Approved reference feeds support source-health and overlap analysis under configured policy. They are not copied wholesale into the output, and the advisory discovery system does not automatically add their rules to production.
+TrihexoctAI is the separate next-generation repository for the Guardlux / TRIHEXΩ project. It evolves the original Trihexoct v1.3.2 repository without sharing its files or subscription URL. The v1.3.2 repository remains the previous stable production line while this alpha is tested. Its deterministic builder normalizes, audits, validates, and compiles curated source modules into a filter list published from the separate TrihexoctAI repository. Approved reference feeds support source-health and overlap analysis under configured policy. They are not copied wholesale into the output, and the advisory discovery system does not automatically add their rules to production.
 
 The engineering objective is not to maximize the number of rules. It is to maintain useful, evidence-backed coverage while minimizing false positives, preserving legitimate website functionality, and keeping every release traceable and recoverable.
 

@@ -1,4 +1,4 @@
-# Start here — TRIHEXΩ v2.0.0-alpha.5
+# Start here — TrihexoctAI / TRIHEXΩ v2.0.0-alpha.5
 
 ## Package identity
 

@@ -25,6 +25,17 @@ REQUIRED = (
 for relative in REQUIRED:
     if not (ROOT / relative).is_file():
         ERRORS.append(f"required project component missing: {relative}")
+# Repository identity is intentionally separate from the original v1.3.2 repo.
+EXPECTED_REPOSITORY = "368Guardlux/TrihexoctAI"
+for workflow_name in ("main.yml", "trihexomega-advisory-review.yml", "trihexomega-autonomous-cycle.yml"):
+    workflow_path = ROOT / ".github/workflows" / workflow_name
+    if workflow_path.exists():
+        workflow_text = workflow_path.read_text(encoding="utf-8")
+        if EXPECTED_REPOSITORY not in workflow_text:
+            ERRORS.append(f"{workflow_name} is not scoped to {EXPECTED_REPOSITORY}")
+        if "github.repository == '368Guardlux/Trihexoct'" in workflow_text:
+            ERRORS.append(f"{workflow_name} still targets the original v1.3.2 repository")
+
 for relative in ("config/trihexomega_agents.json", "config/trihexomega_policy.json", "examples/candidate_proposals.example.json"):
     path = ROOT / relative
     try:

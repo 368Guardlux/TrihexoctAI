@@ -1,5 +1,5 @@
-! Title: Trihexoct Guardlux — TRIHEXΩ v2 Adaptive Supplementary Brave Filter List
-! Homepage: https://github.com/368Guardlux/Trihexoct
+! Title: TrihexoctAI — Guardlux TRIHEXΩ v2 Adaptive Supplementary Brave Filter List
+! Homepage: https://github.com/368Guardlux/TrihexoctAI
 ! Description: TRIHEXΩ v2 alpha supplementary filters for ad delivery, third-party measurement, recognized attribution, cryptojacking indicators, and explicit ad slots.
 ! Version: 2.0.0-alpha.5
 ! Expires: 12 hours

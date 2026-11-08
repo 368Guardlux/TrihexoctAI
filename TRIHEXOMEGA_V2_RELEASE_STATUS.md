@@ -1,8 +1,9 @@
-# TRIHEXΩ v2.0.0-alpha.5 — Full Project Release Status
+# TrihexoctAI — TRIHEXΩ v2.0.0-alpha.5 Full Project Release Status
 
 **Package version:** `2.0.0-alpha.5`  
 **Channel:** Development alpha / integration preview  
-**Stable subscription URL:** `https://raw.githubusercontent.com/368Guardlux/Trihexoct/main/Trihexoct.txt`
+**TRIHEXΩ v2 alpha subscription URL (testing only):** `https://raw.githubusercontent.com/368Guardlux/TrihexoctAI/main/Trihexoct.txt`  
+**Previous stable v1.3.2 subscription URL:** `https://raw.githubusercontent.com/368Guardlux/Trihexoct/main/Trihexoct.txt`
 
 ## Alpha.5 additions
 

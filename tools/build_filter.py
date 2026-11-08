@@ -19,7 +19,7 @@ MODULE_DIR = ROOT / 'src' / 'modules'
 FEED_CONFIG = ROOT / 'config' / 'reference_feeds.json'
 BASELINE_PATH = ROOT / 'reports' / 'reference-feed-baseline.json'
 PROJECT_VERSION = (ROOT / 'VERSION').read_text(encoding='utf-8').strip()
-UA = 'Trihexoct-Guardlux-Filter-Builder/2.0 (+https://github.com/368Guardlux/Trihexoct)'
+UA = 'TrihexoctAI-Guardlux-Filter-Builder/2.0 (+https://github.com/368Guardlux/TrihexoctAI)'
 OVERLAP_POLICY_VERSION = '2.1'
 META_PATH = ROOT / 'Trihexoct.meta.json'
 DELTA_PATH = ROOT / 'reports' / 'rule-delta.json'
@@ -588,8 +588,8 @@ def compile_list(fetch_refs: bool, require_primary: bool, output: Path, report_p
     else:
         build_mode_note='! Build mode: PARTIAL ONLINE RECONCILIATION — some optional reference feeds were unavailable; see build report.'
     header=[
-      '! Title: Trihexoct Guardlux — TRIHEXΩ v2 Adaptive Supplementary Brave Filter List',
-      '! Homepage: https://github.com/368Guardlux/Trihexoct',
+      '! Title: TrihexoctAI — Guardlux TRIHEXΩ v2 Adaptive Supplementary Brave Filter List',
+      '! Homepage: https://github.com/368Guardlux/TrihexoctAI',
       '! Description: TRIHEXΩ v2 alpha supplementary filters for ad delivery, third-party measurement, recognized attribution, cryptojacking indicators, and explicit ad slots.',
       f'! Version: {PROJECT_VERSION}',
       '! Expires: 12 hours',
@@ -626,7 +626,7 @@ def compile_list(fetch_refs: bool, require_primary: bool, output: Path, report_p
     if len(rendered_rules)!=len(set(rendered_rules)):
         raise RuntimeError('rendered list contains duplicate active rules')
     # Validate all required categories before atomic publication.
-    if not any(x.startswith('! Title: Trihexoct Guardlux') for x in out_text.splitlines()[:10]):
+    if not any(x.startswith('! Title: TrihexoctAI') for x in out_text.splitlines()[:10]):
         raise RuntimeError('rendered list is missing required title metadata')
     previous_text = None
     if output.exists():

@@ -22,7 +22,7 @@ except (OSError, UnicodeDecodeError) as exc:
 
 rules = [line.strip() for line in lines if active(line)]
 errors = []
-if not any(line.startswith('! Title: Trihexoct Guardlux') for line in lines[:10]):
+if not any(line.startswith('! Title: TrihexoctAI') for line in lines[:10]):
     errors.append('missing title metadata')
 if not any(line.startswith('! Version: ') for line in lines[:10]):
     errors.append('missing version metadata')

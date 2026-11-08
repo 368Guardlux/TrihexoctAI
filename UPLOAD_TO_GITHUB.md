@@ -1,18 +1,20 @@
-# Upload TRIHEXΩ v2.0.0-alpha.5 safely
+# Upload TrihexoctAI — TRIHEXΩ v2.0.0-alpha.5 safely
 
 This archive contains the complete project folder. It is not a partial overlay.
 
 ## Recommended upload method
 
-1. Back up the existing stable v1.3.2 repository.
-2. Create a separate GitHub development branch, for example `trihexomega-alpha5`.
-3. Extract the complete archive on your computer.
-4. Open the extracted `Trihexoct_Guardlux_Project_TRIHEXOMEGA_v2_0_0_ALPHA5` folder.
-5. Select the contents inside the folder, including hidden `.github/` content if your file manager supports it.
-6. Upload the contents to the repository root of the development branch. Do not add an extra enclosing project folder level.
-7. Preserve the complete structure and all existing files in the archive.
-8. Commit the upload to the development branch.
-9. Check the Actions runs and review the uploaded cycle/evolution artifacts.
+1. Keep the original `368Guardlux/Trihexoct` v1.3.2 repository as your stable backup.
+2. Open the separate v2 repository: `https://github.com/368Guardlux/TrihexoctAI`.
+3. Create a development branch named `trihexomega-alpha5` from its current `main` branch.
+4. Extract this archive on your computer.
+5. Open the extracted `TrihexoctAI` folder.
+6. Select everything inside it, including `.github/` and all other folders and files.
+7. Upload the selected contents to the root of the `trihexomega-alpha5` branch. Do not upload the outer `TrihexoctAI` folder as an extra nested directory.
+8. Preserve the directory structure and commit the changes to `trihexomega-alpha5`.
+9. Check GitHub Actions and review the maintenance, discovery, and evolution artifacts.
+
+Do not upload this v2 project into the original `368Guardlux/Trihexoct` v1.3.2 repository. Keep the two repositories separate.
 
 ## Local validation commands
 
