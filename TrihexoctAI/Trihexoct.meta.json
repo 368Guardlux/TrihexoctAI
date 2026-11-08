@@ -1,0 +1,72 @@
+{
+  "active_rule_count": 833,
+  "build_mode": "offline-bootstrap",
+  "covered_rule_categories": {
+    "cosmetic": 0,
+    "network": 0,
+    "path_or_regex": 0,
+    "url_parameter": 0
+  },
+  "effective_rule_categories": {
+    "cosmetic": 85,
+    "network": 662,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  },
+  "last_output_delta_gate_passed": true,
+  "last_output_delta_ratio": 0.0,
+  "output": "Trihexoct.txt",
+  "output_sha256": "0f88a601ddaa5122c80107cac852db9a2f3a5783744f298475043e7194b6e9da",
+  "overlap_policy_version": "2.1",
+  "project_version": "2.0.0-alpha.5",
+  "published_rule_categories": {
+    "cosmetic": 85,
+    "network": 662,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  },
+  "reference_coverage_complete": false,
+  "reference_feed_registry_count": 32,
+  "reference_registry_sha256": "64665f2c7919313bdd3e6b191e5bd2117080a2f5a49752d4bb787c0ecaba0e56",
+  "rule_categories": {
+    "cosmetic": 85,
+    "network": 662,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  },
+  "schema_version": 1,
+  "source_module_count": 16,
+  "source_module_sha256": {
+    "10-url-tracking-parameters.txt": "9daada9d4f0046b0788b1922a4a7fa8bd4fad9c46206bd4fa26d67feb863294a",
+    "20-ad-exchanges-and-adservers.txt": "bca8dfce12413e99c6930693db99befb48c173f5ce099e5f4b5077872c5d2084",
+    "22-extended-ad-tech-inventory.txt": "3a86b30248e8ba2fa635fdcdfe1cf684ef24086b4e9de1f041bd15586f1efb28",
+    "24-additional-ad-exchange-catalog.txt": "afcf6520eaecf7e9d26cd3a76b1867559d2baa1be0de98b3aa094f34947177e3",
+    "26-additional-named-ad-tech.txt": "996910b9750c9ab78ab391b7e4619dfb8f3f1dbae4db0795352b6c423f114653",
+    "27-additional-ad-delivery-and-attribution.txt": "613654c127214ea3e448411dc950545ba16c45203df7b38170ed2a91e3c9ff31",
+    "30-analytics-and-measurement.txt": "7f8ab65ee280f400a6b2d27b534a161f6e9178353bdf87b9f6c7b661a094a1f4",
+    "32-session-replay-and-user-measurement.txt": "9f49400cc4a2dc20dcfbff237aa52002d5434543eed8219056bc116d750297b7",
+    "55-cryptojacking-endpoints.txt": "8f4a73464bf3334f7f0de8289cb63abbd2bf6561366c510f7ef42944748d9a6e",
+    "60-tracking-pixel-and-narrow-paths.txt": "79734e89613744d767fd746a5f0ddbdf7096b173f75909aa42d2018553329e51",
+    "61-narrow-third-party-measurement-paths.txt": "e83f4be3fa31637dab9aa94fc8b11a764b1ec540a91841b13ade286d91ab4f53",
+    "70-explicit-ad-slot-cosmetics.txt": "7d86c509951767a8f4638d3b2225fc49749d0231eb4f45ecc4cefe67a9687724",
+    "72-explicit-ad-slots-and-widgets.txt": "20c975acbae1693aed2490968a8eb92050f682b5c41fb407dbf3c693106cd3e8",
+    "75-known-ad-widget-cosmetics.txt": "c693cc961d1a1be70ecdf883648d31622b42bf2a3523fc85d21204a62271f1fc",
+    "85-site-specific-ad-cosmetics.txt": "f31cbd36ff62678e9a10da4ff184bb81ffd895034673cad6e03f6ca10e50c7d7",
+    "86-search-ad-layouts.txt": "f92077f1381ce39681a2896cc5bcfb579d99f1fd89d3724dc6c025e1346c3ea5"
+  },
+  "successful_feed_count": 0,
+  "total_feed_count": 0,
+  "trihexomega_capabilities": {
+    "adaptive_triage": "human-feedback-informed review effort ranking only; not threat likelihood and never authorizes blocking",
+    "agent_roster": 16,
+    "agent_stages": "12 specialist analyses, 3 critique roles, 1 synthesis guardian; one configured provider/model endpoint per run",
+    "brave_engine_compatibility_at_archive_build": false,
+    "evolution_planner": "deterministic engineering backlog with recurrence tracking; no automatic code, rule, policy, or publication changes",
+    "feed_drift_guard": "discovery-only holds; production feed coverage unchanged",
+    "human_feedback_learning": "hash-chained human outcomes; aggregate diagnostics and bounded review-priority adaptation only",
+    "live_feed_validation_at_archive_build": false,
+    "production_publication_by_ai": false,
+    "production_rule_mutations_by_ai": 0,
+    "self_learning_semantics": "human-supervised operational diagnostics, not autonomous model training or AGI"
+  }
+}

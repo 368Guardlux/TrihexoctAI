@@ -1,0 +1,2 @@
+# CI-only dependency used to parse GitHub Actions YAML safely before publishing.
+PyYAML==6.0.3

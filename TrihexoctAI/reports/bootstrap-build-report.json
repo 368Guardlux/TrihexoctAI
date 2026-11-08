@@ -1,0 +1,65 @@
+{
+  "covered_rule_categories": {
+    "cosmetic": 0,
+    "network": 0,
+    "path_or_regex": 0,
+    "url_parameter": 0
+  },
+  "effective_rule_categories": {
+    "cosmetic": 85,
+    "network": 662,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  },
+  "feed_count_anomalies": [],
+  "feed_retries": 0,
+  "fetch_workers": 0,
+  "generated_at_utc": "2026-11-08T23:30:57Z",
+  "manual_anomaly_override_used": false,
+  "manual_output_delta_override_used": false,
+  "note": "Offline build does not claim online overlap analysis. Filter syntax lint is not a browser engine parser or live-site test.",
+  "output": "Trihexoct.txt",
+  "output_delta": {
+    "added_count": 0,
+    "added_examples": [],
+    "candidate_active_rules": 833,
+    "changed_count": 0,
+    "changed_ratio": 0.0,
+    "gate_applied": false,
+    "gate_passed": true,
+    "manual_override_used": false,
+    "maximum_change_ratio": 0.4,
+    "policy_note": "Large live-reconciliation changes require review; override only after inspecting the delta report.",
+    "previous_active_rules": 833,
+    "removed_count": 0,
+    "removed_examples": []
+  },
+  "output_sha256": "0f88a601ddaa5122c80107cac852db9a2f3a5783744f298475043e7194b6e9da",
+  "overlap_policy_version": "2.1",
+  "overlap_removal_examples": [],
+  "project_version": "2.0.0-alpha.5",
+  "published_active_rules": 833,
+  "published_rule_categories": {
+    "cosmetic": 85,
+    "network": 662,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  },
+  "reference_coverage_complete": false,
+  "reference_feeds": [
+    {
+      "error": "offline bootstrap build; online coverage not checked",
+      "name": "reference feeds",
+      "ok": false
+    }
+  ],
+  "reference_registry_sha256": "64665f2c7919313bdd3e6b191e5bd2117080a2f5a49752d4bb787c0ecaba0e56",
+  "removed_exact_and_covered_rules": 0,
+  "schema_version": 1,
+  "source_exact_duplicates_removed": 0,
+  "source_module_count": 16,
+  "source_unique_rules": 833,
+  "successful_feed_count": 0,
+  "successful_feed_groups": {},
+  "total_feed_count": 0
+}

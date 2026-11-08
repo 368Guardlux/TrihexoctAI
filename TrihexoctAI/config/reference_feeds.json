@@ -1,0 +1,398 @@
+{
+  "schema_version": 2,
+  "description": "Approved upstream feeds are fetched as untrusted text for reference-health and conservative overlap analysis only. They are never executed or republished wholesale.",
+  "required_groups": {
+    "ads": 1,
+    "privacy": 1,
+    "security": 2
+  },
+  "feeds": [
+    {
+      "name": "EasyList",
+      "url": "https://easylist.to/easylist/easylist.txt",
+      "required": true,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "ads"
+      ],
+      "publisher_id": "easylist"
+    },
+    {
+      "name": "EasyPrivacy",
+      "url": "https://easylist.to/easylist/easyprivacy.txt",
+      "required": true,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "privacy"
+      ],
+      "publisher_id": "easylist"
+    },
+    {
+      "name": "Peter Lowe Ad Servers",
+      "url": "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0&mimetype=plaintext",
+      "required": true,
+      "max_bytes": 12000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "privacy"
+      ],
+      "publisher_id": "peter-lowe"
+    },
+    {
+      "name": "1Hosts Lite",
+      "url": "https://raw.githubusercontent.com/badmojr/1Hosts/master/Lite/adblock.txt",
+      "required": false,
+      "max_bytes": 20000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "privacy",
+        "security"
+      ],
+      "publisher_id": "1hosts"
+    },
+    {
+      "name": "HaGeZi Multi PRO",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt",
+      "required": false,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "privacy",
+        "security"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "AdGuard DNS filter",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt",
+      "required": false,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "privacy",
+        "security"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "OISD Big",
+      "url": "https://big.oisd.nl/",
+      "required": false,
+      "max_bytes": 30000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "privacy",
+        "security"
+      ],
+      "publisher_id": "oisd"
+    },
+    {
+      "name": "AdGuard disguised mail trackers",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/master/data/combined_disguised_mail_trackers.txt",
+      "required": false,
+      "max_bytes": 12000000,
+      "format": "adblock",
+      "groups": [
+        "privacy"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "yokoffing Annoyance List",
+      "url": "https://raw.githubusercontent.com/yokoffing/filterlists/main/annoyance_list.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "annoyance"
+      ],
+      "publisher_id": "yokoffing"
+    },
+    {
+      "name": "yokoffing click2load",
+      "url": "https://raw.githubusercontent.com/yokoffing/filterlists/main/click2load.txt",
+      "required": false,
+      "max_bytes": 4000000,
+      "format": "adblock",
+      "groups": [
+        "annoyance"
+      ],
+      "publisher_id": "yokoffing"
+    },
+    {
+      "name": "yokoffing Privacy Essentials",
+      "url": "https://raw.githubusercontent.com/yokoffing/filterlists/main/privacy_essentials.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "privacy"
+      ],
+      "publisher_id": "yokoffing"
+    },
+    {
+      "name": "HaGeZi Dynamic DNS",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/dyndns.txt",
+      "required": false,
+      "max_bytes": 5000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "HaGeZi Badware Hoster",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/hoster.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "HaGeZi Fake Domains",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "HaGeZi Gambling",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/gambling.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "special-category"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "HaGeZi Threat Intelligence Mini",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.mini.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "NoCoin browser-mining list",
+      "url": "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "nocoin"
+    },
+    {
+      "name": "Dandelion Sprout Anti-Malware",
+      "url": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareABP.txt",
+      "required": false,
+      "max_bytes": 12000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "dandelion-sprout"
+    },
+    {
+      "name": "Phishing Army Community Phishing List",
+      "url": "https://phishing.army/download/phishing_army_blocklist_extended.txt",
+      "required": false,
+      "max_bytes": 20000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "phishing-army"
+    },
+    {
+      "name": "uBlock Origin Badware Risks",
+      "url": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "ublock-origin"
+    },
+    {
+      "name": "uBlock Origin Resource Abuse",
+      "url": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "ublock-origin"
+    },
+    {
+      "name": "AdGuard Base Filter",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_2_Base/filter.txt",
+      "required": false,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "ads"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "AdGuard Tracking Protection",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_3_Spyware/filter.txt",
+      "required": false,
+      "max_bytes": 20000000,
+      "format": "adblock",
+      "groups": [
+        "privacy"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "AdGuard Annoyances",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_14_Annoyances/filter.txt",
+      "required": false,
+      "max_bytes": 25000000,
+      "format": "adblock",
+      "groups": [
+        "annoyance"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "AdGuard Cookie Notices",
+      "url": "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_18_Annoyances_Cookies/filter.txt",
+      "required": false,
+      "max_bytes": 15000000,
+      "format": "adblock",
+      "groups": [
+        "annoyance"
+      ],
+      "publisher_id": "adguard"
+    },
+    {
+      "name": "ShadowWhisperer Ads Domains",
+      "url": "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Ads",
+      "required": false,
+      "max_bytes": 20000000,
+      "format": "domains",
+      "groups": [
+        "ads"
+      ],
+      "publisher_id": "shadowwhisperer"
+    },
+    {
+      "name": "ShadowWhisperer Tracking Domains",
+      "url": "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/Lists/Tracking",
+      "required": false,
+      "max_bytes": 25000000,
+      "format": "domains",
+      "groups": [
+        "privacy"
+      ],
+      "publisher_id": "shadowwhisperer"
+    },
+    {
+      "name": "OpenPhish Community URL Indicators (health only)",
+      "url": "https://raw.githubusercontent.com/openphish/public_feed/main/feed.txt",
+      "required": false,
+      "max_bytes": 8000000,
+      "format": "url-indicators",
+      "groups": [
+        "security"
+      ],
+      "publisher_id": "openphish"
+    },
+    {
+      "name": "HaGeZi Threat Intelligence Full",
+      "url": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt",
+      "required": false,
+      "max_bytes": 40000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "notes": "Overlap index and source-health only; never copied into the published list.",
+      "publisher_id": "hagezi"
+    },
+    {
+      "name": "uBlock Origin Quick Fixes",
+      "url": "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/quick-fixes.txt",
+      "required": false,
+      "max_bytes": 12000000,
+      "format": "adblock",
+      "groups": [
+        "annoyance",
+        "privacy"
+      ],
+      "notes": "Reference-only compatibility and breakage fixes; exact-match comparisons are conservative.",
+      "publisher_id": "ublock-origin"
+    },
+    {
+      "name": "Fuck Fuckadblock (legacy reference)",
+      "url": "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock.txt",
+      "required": false,
+      "max_bytes": 4000000,
+      "format": "adblock",
+      "groups": [
+        "ads",
+        "annoyance"
+      ],
+      "notes": "Archived upstream; exact-match reference only. Do not copy or rely on it as an actively maintained source.",
+      "publisher_id": "bogachenko"
+    },
+    {
+      "name": "Fuck Fuckadblock Mining (legacy reference)",
+      "url": "https://raw.githubusercontent.com/bogachenko/fuckfuckadblock/master/fuckfuckadblock-mining.txt",
+      "required": false,
+      "max_bytes": 4000000,
+      "format": "adblock",
+      "groups": [
+        "security"
+      ],
+      "notes": "Archived upstream; exact-match reference only. Not a source of new published rules.",
+      "publisher_id": "bogachenko"
+    }
+  ],
+  "policy": {
+    "max_workers": 8,
+    "retries": 2,
+    "anomaly_history_samples": 7,
+    "anomaly_lower_ratio": 0.45,
+    "anomaly_upper_ratio": 2.5,
+    "minimum_successful_feeds": 10,
+    "network_rules_must_be_third_party_scoped": true,
+    "never_copy_feed_rules": true,
+    "url_indicator_feeds_are_health_only": true,
+    "max_published_rule_change_ratio": 0.4,
+    "output_delta_gate": "manual-review-required-for-large-live-reconciliation-change",
+    "output_delta_denominator": "previous_active_rule_count"
+  },
+  "publisher_identity_policy": {
+    "meaning": "Curator-maintained grouping of feeds believed to share a publishing organization or project.",
+    "limitations": "Publisher IDs are administrative metadata, not cryptographic proof of ownership or editorial independence.",
+    "candidate_corroboration_minimum": 2,
+    "rule": "Count distinct publisher_id values; multiple feeds from one publisher count once."
+  }
+}

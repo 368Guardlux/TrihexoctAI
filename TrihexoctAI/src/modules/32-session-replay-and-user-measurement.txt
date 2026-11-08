@@ -1,0 +1,10 @@
+! Third-party measurement, survey, and session-replay services.
+! Blocking these may stop nonessential analytics, user surveys, heatmaps, or error telemetry.
+! Keep these third-party scoped: do not block the same vendor when a site serves it first-party.
+||datadoghq.com^$third-party
+||newrelic.com^$third-party
+||sentry.io^$third-party
+||survicate.com^$third-party
+||usabilla.com^$third-party
+||userreport.com^$third-party
+||qualaroo.com^$third-party

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-08T23:31:00Z",
+  "project_version": "2.0.0-alpha.5",
+  "mode": "local_read_only_network_free_diagnostics",
+  "python_version": "3.13.5",
+  "checks": [
+    {
+      "name": "required_project_layout",
+      "status": "pass",
+      "detail": "all required paths present"
+    },
+    {
+      "name": "version_consistency",
+      "status": "pass",
+      "detail": "VERSION=2.0.0-alpha.5; metadata and filter header must match"
+    },
+    {
+      "name": "reference_registry_identity",
+      "status": "pass",
+      "detail": "32 configured feed entries; 0 missing curated publisher IDs"
+    },
+    {
+      "name": "runtime_policy_consistency",
+      "status": "pass",
+      "detail": "16 roles; max 8 candidates; 16 calls; 8 fetch workers"
+    },
+    {
+      "name": "source_module_presence",
+      "status": "pass",
+      "detail": "16 source modules found"
+    },
+    {
+      "name": "workflow_presence",
+      "status": "pass",
+      "detail": "4 workflow files found"
+    },
+    {
+      "name": "optional_model_provider",
+      "status": "warning",
+      "detail": "not configured; deterministic maintenance remains available"
+    }
+  ],
+  "passed": 6,
+  "warnings": 1,
+  "failed": 0,
+  "network_requests_made": 0,
+  "secrets_printed": false,
+  "production_changes": 0,
+  "publication_authorized": false,
+  "notice": "This doctor checks local configuration and layout only. It does not fetch feeds, invoke an AI model, run Brave, or certify website compatibility."
+}

@@ -1,0 +1,27 @@
+! Additional named ad-delivery, attribution, and mobile-ad endpoints.
+! All rules are constrained to third-party requests by policy normalization.
+! These complement—rather than replace—EasyList, AdGuard, OISD, HaGeZi, and 1Hosts.
+||ad-delivery.net^$third-party
+||ad-score.com^$third-party
+||adlightning.com^$third-party
+||ads-twitter.com^$third-party
+||adsystem.com^$third-party
+||an.facebook.com^$third-party
+||applovin.com^$third-party
+||clickcease.com^$third-party
+||firebaseperforma.googleapis.com^$third-party
+||inmobi.com^$third-party
+||ironsource.com^$third-party
+||monetag.com^$third-party
+||pixel.facebook.com^$third-party
+||zeroredirect1.com^$third-party
+||vungle.com^$third-party
+||m.bizible.com^$third-party
+||e.customeriomail.com^$third-party
+||t.eloqua.com^$third-party
+||p.adsymptotic.com^$third-party
+||browser.pipe.aria.microsoft.com^$third-party
+||device-metrics-us.amazon.com^$third-party
+||telemetry.nvidia.com^$third-party
+||v10.events.data.microsoft.com^$third-party
+||stats.wp.com^$third-party
