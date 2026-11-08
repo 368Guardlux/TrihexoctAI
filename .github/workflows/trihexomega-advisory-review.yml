@@ -1,0 +1,80 @@
+name: TRIHEXΩ manual advisory candidate review
+"on":
+  workflow_dispatch:
+
+# This workflow is deliberately read-only. It cannot publish or commit filters.
+permissions:
+  contents: read
+
+concurrency:
+  group: trihexomega-advisory-review
+  cancel-in-progress: true
+
+jobs:
+  advisory-review:
+    name: Run bounded advisory swarm
+    if: github.repository == '368Guardlux/Trihexoct'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - name: Check out source without persisting credentials
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+          check-latest: false
+
+      - name: Select candidate proposal input
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          if [[ -f reports/trihexomega-candidate-proposals.json ]]; then
+            echo "TRIHEXOMEGA_CANDIDATES=reports/trihexomega-candidate-proposals.json" >> "$GITHUB_ENV"
+          else
+            echo "TRIHEXOMEGA_CANDIDATES=examples/candidate_proposals.example.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Run the bounded specialist review on manually supplied candidates
+        if: github.ref == 'refs/heads/main'
+        env:
+          TRIHEXOMEGA_AI_API_KEY: ${{ secrets.TRIHEXOMEGA_AI_API_KEY }}
+          TRIHEXOMEGA_AI_MODEL: ${{ vars.TRIHEXOMEGA_AI_MODEL }}
+          TRIHEXOMEGA_AI_BASE_URL: ${{ vars.TRIHEXOMEGA_AI_BASE_URL || 'https://api.openai.com/v1' }}
+          TRIHEXOMEGA_AI_ALLOWED_HOSTS: ${{ vars.TRIHEXOMEGA_AI_ALLOWED_HOSTS || 'api.openai.com' }}
+        run: >-
+          python tools/trihexomega/swarm.py
+          --candidates "${TRIHEXOMEGA_CANDIDATES}"
+          --agents config/trihexomega_agents.json
+          --output reports/trihexomega-swarm-review.json
+          --workers 8
+          --memory reports/trihexomega-human-review-memory.jsonl
+
+      - name: Run deterministic preflight when not on main
+        if: github.ref != 'refs/heads/main'
+        env:
+          TRIHEXOMEGA_AI_API_KEY: ""
+          TRIHEXOMEGA_AI_MODEL: ""
+        run: >-
+          python tools/trihexomega/swarm.py
+          --candidates "${TRIHEXOMEGA_CANDIDATES}"
+          --agents config/trihexomega_agents.json
+          --output reports/trihexomega-swarm-review.json
+          --workers 8
+          --memory reports/trihexomega-human-review-memory.jsonl
+
+      - name: Upload advisory report
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: trihexomega-advisory-review-${{ github.run_number }}
+          path: reports/trihexomega-swarm-review.json
+          if-no-files-found: warn
+          retention-days: 30
