@@ -2,7 +2,7 @@
 
 **Project version:** `2.0.0-alpha.5`  
 **Release channel:** Development alpha / integration preview  
-**Stable production subscription:** `https://raw.githubusercontent.com/368Guardlux/Trihexoct/main/Trihexoct.txt](https://raw.githubusercontent.com/368Guardlux/TrihexoctAI/main/Trihexoct.txt`  
+**Stable production subscription:** 'https://raw.githubusercontent.com/368Guardlux/TrihexoctAI/main/Trihexoct.txt'
 **Target filtering engine:** Brave Shields / supported ABP-style filtering syntax
 
 TRIHEXΩ is an expanded, evidence-driven maintenance and assurance architecture around the existing deterministic Trihexoct filter project. Alpha.5 preserves the v1.3.2 source modules and the 833-rule authored baseline while adding human-feedback diagnostics, source-drift screening, adaptive review triage, and a deterministic engineering-evolution planner.
