@@ -1,0 +1,24 @@
+! Additional named ad-tech / inventory endpoints.
+! Third-party scoped by the compiler; these do not target whole generic domains or infrastructure IP ranges.
+||adpone.com^
+||adrecover.com^
+||adshuffle.com^
+||adthrive.com^
+||adunity.com^
+||advolution.de^
+||aerserv.com^
+||aerserv.io^
+||aicdn.com^
+||bidfluence.com^
+||bidr.io^
+||bidsxchange.com^
+||broadstreetads.com^
+||collective.com^
+||crwdcntrl.net^
+||dotomi.com^
+||impressiondesk.com^
+||innovid.com^
+||nexac.com^
+||nobid.io^
+||owneriq.net^
+||unruly.co^

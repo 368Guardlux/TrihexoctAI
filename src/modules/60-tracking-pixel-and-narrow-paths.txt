@@ -1,0 +1,8 @@
+! Narrow tracker-pixel and measurement endpoint paths only. No generic API, hash, payload-size, or arbitrary endpoint heuristics.
+
+*/amp-analytics-*.js
+*/amp-auto-ads-*.js
+*/amp-pixel-*.js
+*/impression.gif?$image,third-party
+*/px.gif?$image,third-party
+*/track.gif?$image,third-party

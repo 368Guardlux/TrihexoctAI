@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-08T19:26:30Z",
+  "mode": "read_only_filter_change_impact",
+  "baseline": {
+    "path": "Trihexoct.txt",
+    "sha256": "7e3376811cc84ad77b6c371f56a8e747c8b5cf2e73737517c975dd191f38f992",
+    "unique_rules": 833
+  },
+  "candidate": {
+    "path": "Trihexoct.txt",
+    "sha256": "7e3376811cc84ad77b6c371f56a8e747c8b5cf2e73737517c975dd191f38f992",
+    "active_rule_lines": 833,
+    "unique_rules": 833,
+    "duplicate_lines": 0
+  },
+  "delta": {
+    "added": 0,
+    "removed": 0,
+    "changed_ratio": 0.0,
+    "added_by_category": {},
+    "removed_by_category": {},
+    "baseline_by_category": {
+      "cosmetic": 85,
+      "network": 662,
+      "path_or_regex": 9,
+      "url_parameter": 77
+    },
+    "candidate_by_category": {
+      "cosmetic": 85,
+      "network": 662,
+      "path_or_regex": 9,
+      "url_parameter": 77
+    },
+    "added_rule_samples": [],
+    "removed_rule_samples": []
+  },
+  "review_flags": [],
+  "blockers": [],
+  "recommendation": "low_risk_for_independent_review",
+  "human_review_required": true,
+  "publication_authorized": false,
+  "notice": "This is a deterministic change-impact heuristic, not a proof of safety, threat status, or compatibility. Low-risk does not mean auto-approved."
+}
