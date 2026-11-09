@@ -1,4 +1,4 @@
-name: Build and validate Trihexoct
+name: Build and validate TrihexoctAI / TRIHEXΩ
 "on":
   workflow_dispatch:
     inputs:
@@ -40,7 +40,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: trihexoct-main-publisher
+  group: trihexoctai-main-publisher
   cancel-in-progress: false
 
 jobs:
@@ -185,7 +185,7 @@ jobs:
   publish:
     name: Verify and publish validated artifact
     needs: build-and-validate
-    if: needs.build-and-validate.result == 'success' && github.repository == '368Guardlux/Trihexoct'
+    if: needs.build-and-validate.result == 'success' && github.repository == '368Guardlux/TrihexoctAI'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
