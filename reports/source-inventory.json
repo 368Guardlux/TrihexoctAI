@@ -1,0 +1,248 @@
+{
+  "duplicates": [],
+  "exact_duplicate_count": 0,
+  "modules": [
+    {
+      "active_rules": 77,
+      "bytes": 2246,
+      "categories": {
+        "cosmetic": 0,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 77
+      },
+      "module": "10-url-tracking-parameters.txt",
+      "physical_lines": 82,
+      "sha256": "9daada9d4f0046b0788b1922a4a7fa8bd4fad9c46206bd4fa26d67feb863294a"
+    },
+    {
+      "active_rules": 401,
+      "bytes": 12816,
+      "categories": {
+        "cosmetic": 0,
+        "network": 401,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "20-ad-exchanges-and-adservers.txt",
+      "physical_lines": 403,
+      "sha256": "bca8dfce12413e99c6930693db99befb48c173f5ce099e5f4b5077872c5d2084"
+    },
+    {
+      "active_rules": 96,
+      "bytes": 2913,
+      "categories": {
+        "cosmetic": 0,
+        "network": 96,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "22-extended-ad-tech-inventory.txt",
+      "physical_lines": 99,
+      "sha256": "3a86b30248e8ba2fa635fdcdfe1cf684ef24086b4e9de1f041bd15586f1efb28"
+    },
+    {
+      "active_rules": 60,
+      "bytes": 1824,
+      "categories": {
+        "cosmetic": 0,
+        "network": 60,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "24-additional-ad-exchange-catalog.txt",
+      "physical_lines": 62,
+      "sha256": "afcf6520eaecf7e9d26cd3a76b1867559d2baa1be0de98b3aa094f34947177e3"
+    },
+    {
+      "active_rules": 22,
+      "bytes": 506,
+      "categories": {
+        "cosmetic": 0,
+        "network": 22,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "26-additional-named-ad-tech.txt",
+      "physical_lines": 24,
+      "sha256": "996910b9750c9ab78ab391b7e4619dfb8f3f1dbae4db0795352b6c423f114653"
+    },
+    {
+      "active_rules": 24,
+      "bytes": 1022,
+      "categories": {
+        "cosmetic": 0,
+        "network": 24,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "27-additional-ad-delivery-and-attribution.txt",
+      "physical_lines": 27,
+      "sha256": "613654c127214ea3e448411dc950545ba16c45203df7b38170ed2a91e3c9ff31"
+    },
+    {
+      "active_rules": 40,
+      "bytes": 1538,
+      "categories": {
+        "cosmetic": 0,
+        "network": 40,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "30-analytics-and-measurement.txt",
+      "physical_lines": 42,
+      "sha256": "7f8ab65ee280f400a6b2d27b534a161f6e9178353bdf87b9f6c7b661a094a1f4"
+    },
+    {
+      "active_rules": 7,
+      "bytes": 452,
+      "categories": {
+        "cosmetic": 0,
+        "network": 7,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "32-session-replay-and-user-measurement.txt",
+      "physical_lines": 10,
+      "sha256": "9f49400cc4a2dc20dcfbff237aa52002d5434543eed8219056bc116d750297b7"
+    },
+    {
+      "active_rules": 12,
+      "bytes": 460,
+      "categories": {
+        "cosmetic": 0,
+        "network": 12,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "55-cryptojacking-endpoints.txt",
+      "physical_lines": 14,
+      "sha256": "8f4a73464bf3334f7f0de8289cb63abbd2bf6561366c510f7ef42944748d9a6e"
+    },
+    {
+      "active_rules": 6,
+      "bytes": 284,
+      "categories": {
+        "cosmetic": 0,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 6,
+        "url_parameter": 0
+      },
+      "module": "60-tracking-pixel-and-narrow-paths.txt",
+      "physical_lines": 8,
+      "sha256": "79734e89613744d767fd746a5f0ddbdf7096b173f75909aa42d2018553329e51"
+    },
+    {
+      "active_rules": 3,
+      "bytes": 296,
+      "categories": {
+        "cosmetic": 0,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 3,
+        "url_parameter": 0
+      },
+      "module": "61-narrow-third-party-measurement-paths.txt",
+      "physical_lines": 5,
+      "sha256": "e83f4be3fa31637dab9aa94fc8b11a764b1ec540a91841b13ade286d91ab4f53"
+    },
+    {
+      "active_rules": 27,
+      "bytes": 883,
+      "categories": {
+        "cosmetic": 27,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "70-explicit-ad-slot-cosmetics.txt",
+      "physical_lines": 29,
+      "sha256": "7d86c509951767a8f4638d3b2225fc49749d0231eb4f45ecc4cefe67a9687724"
+    },
+    {
+      "active_rules": 14,
+      "bytes": 605,
+      "categories": {
+        "cosmetic": 14,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "72-explicit-ad-slots-and-widgets.txt",
+      "physical_lines": 16,
+      "sha256": "20c975acbae1693aed2490968a8eb92050f682b5c41fb407dbf3c693106cd3e8"
+    },
+    {
+      "active_rules": 25,
+      "bytes": 908,
+      "categories": {
+        "cosmetic": 25,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "75-known-ad-widget-cosmetics.txt",
+      "physical_lines": 30,
+      "sha256": "c693cc961d1a1be70ecdf883648d31622b42bf2a3523fc85d21204a62271f1fc"
+    },
+    {
+      "active_rules": 4,
+      "bytes": 208,
+      "categories": {
+        "cosmetic": 4,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "85-site-specific-ad-cosmetics.txt",
+      "physical_lines": 6,
+      "sha256": "f31cbd36ff62678e9a10da4ff184bb81ffd895034673cad6e03f6ca10e50c7d7"
+    },
+    {
+      "active_rules": 15,
+      "bytes": 552,
+      "categories": {
+        "cosmetic": 15,
+        "network": 0,
+        "other": 0,
+        "path_or_regex": 0,
+        "url_parameter": 0
+      },
+      "module": "86-search-ad-layouts.txt",
+      "physical_lines": 18,
+      "sha256": "f92077f1381ce39681a2896cc5bcfb579d99f1fd89d3724dc6c025e1346c3ea5"
+    }
+  ],
+  "notes": [
+    "Deterministic source inventory; no source code is executed.",
+    "Counts describe authored module lines before online reference-feed reconciliation.",
+    "Static policy checks do not replace parsing in Brave or live-site testing."
+  ],
+  "policy_violation_count": 0,
+  "policy_violations": [],
+  "project_version": "2.0.0-alpha.5",
+  "schema_version": 1,
+  "source_module_count": 16,
+  "totals": {
+    "active_rules": 833,
+    "cosmetic": 85,
+    "network": 662,
+    "other": 0,
+    "path_or_regex": 9,
+    "url_parameter": 77
+  }
+}

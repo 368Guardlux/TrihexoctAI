@@ -1,0 +1,14 @@
+! Known historical browser-mining and cryptojacking endpoints. This supplement is not a malware scanner.
+
+||authedmine.com^$third-party
+||browsermine.com^$third-party
+||coin-hive.com^$third-party
+||coinhive.com^$third-party
+||coinimp.com^$third-party
+||coinimp.net^$third-party
+||cryptaloot.pro^$third-party
+||crypto-webminer.com^$third-party
+||jsecoin.com^$third-party
+||minexmr.com^$third-party
+||webminepool.com^$third-party
+||webminerpool.com^$third-party

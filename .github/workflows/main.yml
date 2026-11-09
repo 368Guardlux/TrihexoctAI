@@ -1,0 +1,262 @@
+name: Build and validate TrihexoctAI / TRIHEXΩ
+"on":
+  workflow_dispatch:
+    inputs:
+      accept_feed_anomaly:
+        description: "Accept a source-count anomaly only after reviewing the failed build report"
+        required: false
+        default: false
+        type: boolean
+      accept_large_output_change:
+        description: "Publish a large rule-set change only after reviewing reports/rule-delta.json"
+        required: false
+        default: false
+        type: boolean
+      accept_change_impact:
+        description: "After reviewing a failed run's change-impact report, allow its held candidate to reach production approval"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "17 */12 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "src/modules/**"
+      - "config/reference_feeds.json"
+      - "config/trihexomega_policy.json"
+      - "tools/**"
+      - "tests/**"
+      - "requirements-ci.txt"
+      - "docs/**"
+      - ".github/workflows/**"
+      - "README.md"
+      - "README_START_HERE.md"
+      - "CHANGELOG.md"
+      - "CONTRIBUTING.md"
+      - "SECURITY.md"
+      - "SECURITY_MODEL.md"
+      - "reports/coverage_policy.md"
+      - "VERSION"
+
+# Only the publisher job receives contents: write. Build, feed fetching,
+# candidate generation, and validation run without persisted write credentials.
+permissions:
+  contents: read
+
+concurrency:
+  group: trihexoctai-main-publisher
+  cancel-in-progress: false
+
+jobs:
+  build-and-validate:
+    name: Test, reconcile, analyze, and package validated output
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - name: Check out exact triggering commit without persisted credentials
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          check-latest: false
+
+      - name: Install CI-only YAML validator
+        run: python -m pip install --disable-pip-version-check --requirement requirements-ci.txt
+
+      - name: Validate workflow YAML and step structure
+        run: python tools/validate_workflows.py
+
+      - name: Verify complete project layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            "VERSION" "Trihexoct.txt" "Trihexoct.meta.json"
+            "config/reference_feeds.json" "tools/build_filter.py"
+            "tools/validate_filter.py" "tools/audit_source_modules.py"
+            "tools/validate_workflows.py" "tools/write_summary.py"
+            "tests/test_filter_project.py" "src/modules/10-url-tracking-parameters.txt"
+          )
+          missing=()
+          for path in "${required[@]}"; do
+            [[ -f "$path" ]] || missing+=("$path")
+          done
+          if (( ${#missing[@]} > 0 )); then
+            printf '::error::Missing required project files:\n'
+            printf '  - %s\n' "${missing[@]}"
+            exit 2
+          fi
+          compgen -G 'src/modules/*.txt' >/dev/null || { echo '::error::No source modules found'; exit 2; }
+          echo 'Complete project layout verified.'
+
+      - name: Run regression tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run local TRIHEXΩ operations doctor
+        run: python tools/trihexomega/doctor.py --output reports/trihexomega-doctor.json
+
+      - name: Audit source modules
+        run: python tools/audit_source_modules.py --output reports/source-inventory.json
+
+      - name: Check repository whitespace
+        run: git diff --check
+
+      - name: Capture current published artifact baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git show HEAD:Trihexoct.txt > /tmp/trihexoct-stable-baseline.txt
+
+      - name: Fetch reference feeds, reconcile overlap, and build
+        shell: bash
+        env:
+          ACCEPT_FEED_ANOMALY: ${{ inputs.accept_feed_anomaly }}
+          ACCEPT_LARGE_OUTPUT_CHANGE: ${{ inputs.accept_large_output_change }}
+        run: |
+          set -euo pipefail
+          rm -f reports/rule-delta.json
+          args=(--fetch-references --require-primary --workers 8 --retries 2
+                --output Trihexoct.txt --report reports/build-report.json)
+          if [[ "${ACCEPT_FEED_ANOMALY:-false}" == "true" ]]; then args+=(--accept-feed-anomaly); fi
+          if [[ "${ACCEPT_LARGE_OUTPUT_CHANGE:-false}" == "true" ]]; then args+=(--accept-large-output-change); fi
+          python tools/build_filter.py "${args[@]}"
+
+      - name: Validate generated Brave list and manifest
+        run: python tools/validate_filter.py Trihexoct.txt
+
+      - name: Analyze filter change impact against current published baseline
+        if: success()
+        shell: bash
+        env:
+          ACCEPT_CHANGE_IMPACT: ${{ inputs.accept_change_impact }}
+        run: |
+          set -euo pipefail
+          args=(--baseline /tmp/trihexoct-stable-baseline.txt
+                --candidate Trihexoct.txt
+                --policy config/trihexomega_policy.json
+                --output reports/trihexomega-change-impact.json
+                --strict)
+          if [[ "${ACCEPT_CHANGE_IMPACT:-false}" == "true" ]]; then
+            if [[ "$GITHUB_EVENT_NAME" != "workflow_dispatch" || "$GITHUB_REF" != "refs/heads/main" ]]; then
+              echo "::error::Change-impact review override is allowed only for a manual run on main."
+              exit 2
+            fi
+            args+=(--accept-review)
+          fi
+          python tools/trihexomega/change_impact.py "${args[@]}"
+
+      - name: Rebuild source inventory and provenance after reconciliation
+        run: |
+          python tools/audit_source_modules.py --output reports/source-inventory.json
+          python tools/trihexomega/provenance.py --output reports/trihexomega-provenance.json
+
+      - name: Write build summary
+        if: always()
+        run: python tools/write_summary.py reports/build-report.json
+
+      - name: Upload diagnostics even when validation fails
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: trihexoct-diagnostics-${{ github.run_number }}
+          path: |
+            reports/build-report.json
+            reports/rule-delta.json
+            reports/source-inventory.json
+            reports/trihexomega-doctor.json
+            reports/trihexomega-change-impact.json
+            reports/trihexomega-provenance.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Create checksum manifest for validated publication payload
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha256sum Trihexoct.txt Trihexoct.meta.json > reports/publish-payload.sha256
+
+      - name: Upload validated publication payload
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: trihexoct-validated-publication-${{ github.run_number }}
+          path: |
+            Trihexoct.txt
+            Trihexoct.meta.json
+            reports/reference-feed-baseline.json
+            reports/source-inventory.json
+            reports/trihexomega-provenance.json
+            reports/publish-payload.sha256
+          if-no-files-found: error
+          retention-days: 2
+
+  publish:
+    name: Verify and publish validated artifact
+    needs: build-and-validate
+    if: needs.build-and-validate.result == 'success' && github.repository == '368Guardlux/TrihexoctAI' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+    permissions:
+      contents: write
+    steps:
+      - name: Check out main with publisher-only credentials
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Verify source commit is the one that was built
+        shell: bash
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [[ "$actual" != "${{ github.sha }}" ]]; then
+            echo "::error::main changed after validation; refusing to publish an artifact built from a different commit."
+            exit 1
+          fi
+
+      - name: Download validated publication artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: trihexoct-validated-publication-${{ github.run_number }}
+          path: staging
+
+      - name: Verify payload checksum and prepare publish files
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd staging
+          sha256sum --check reports/publish-payload.sha256
+          cd ..
+          cp staging/Trihexoct.txt Trihexoct.txt
+          cp staging/Trihexoct.meta.json Trihexoct.meta.json
+          mkdir -p reports
+          cp staging/reports/reference-feed-baseline.json reports/reference-feed-baseline.json
+          cp staging/reports/source-inventory.json reports/source-inventory.json
+          cp staging/reports/trihexomega-provenance.json reports/trihexomega-provenance.json
+          git diff --check
+
+      - name: Commit validated list, manifest, and baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add Trihexoct.txt Trihexoct.meta.json reports/reference-feed-baseline.json reports/source-inventory.json reports/trihexomega-provenance.json
+          if git diff --cached --quiet; then
+            echo "No validated list, manifest, baseline, or provenance changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(filters): refresh validated Trihexoct list"
+          git push origin HEAD:main

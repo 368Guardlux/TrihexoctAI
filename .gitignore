@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+reports/build-report.json
+*.tmp
+reports/trihexomega-feed-cache/
+reports/trihexomega-cache-controller.json
+reports/trihexomega-cache-controller-last-report.json
+reports/trihexomega-discovery-baseline.json
+reports/trihexomega-source-health-history.json
+reports/trihexomega-evolution-state.json

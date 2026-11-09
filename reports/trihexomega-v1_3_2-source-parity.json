@@ -1,0 +1,19 @@
+{
+  "active_rule_set_identical": true,
+  "active_rules_added": 0,
+  "active_rules_removed": 0,
+  "all_source_module_sha256_identical": true,
+  "baseline_version": "1.3.2",
+  "comparison": "supplied v1.3.2 full-project ZIP versus TRIHEXOMEGA v2.0.0-alpha.5 local package",
+  "current_active_rule_count": 833,
+  "interpretation": "All sixteen production source-module files and the active rule set are byte/semantic identical to the supplied v1.3.2 baseline. Alpha.5 expands supervised feedback diagnostics, source drift screening, deterministic adaptive triage, and engineering-evolution planning without adding AI-generated production rules.",
+  "original_active_rule_count": 833,
+  "production_filter_rule_changes": 0,
+  "project_version": "2.0.0-alpha.5",
+  "schema_version": 2,
+  "source_module_count_current": 16,
+  "source_module_count_original": 16,
+  "source_modules_added": [],
+  "source_modules_changed": [],
+  "source_modules_removed": []
+}
