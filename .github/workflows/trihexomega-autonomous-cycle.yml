@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   maintenance-and-review:
-    if: github.repository == '368Guardlux/Trihexoct'
+    if: github.repository == '368Guardlux/TrihexoctAI'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     permissions:
