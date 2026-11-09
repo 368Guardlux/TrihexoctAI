@@ -1,6 +1,0 @@
-! Site-scoped search/ad placement cosmetics. Layouts change, so report false positives rather than broadening selectors.
-
-bing.com##.b_ad
-bing.com##li.b_ad
-duckduckgo.com##.results--ads
-yahoo.com##.searchAds

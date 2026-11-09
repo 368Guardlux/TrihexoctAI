@@ -1,1 +1,0 @@
-Trihexoct's authored scripts, tests, metadata, and curated supplementary rules are maintained for this project. The project references third-party filter lists for overlap analysis only; those lists retain their own licenses and terms. Do not republish upstream list contents wholesale.

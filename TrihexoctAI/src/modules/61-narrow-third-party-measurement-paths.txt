@@ -1,5 +1,0 @@
-! Narrow third-party tracking/resource patterns carried over from the original custom list.
-! Only exact pixel/measurement path stems are included; no all-domain telemetry regexes.
-*/amp-analytics-*.js$script,third-party
-*/amp-pixel-*.js$script,third-party
-*/amp-auto-ads-*.js$script,third-party
