@@ -1,0 +1,108 @@
+name: TRIHEXΩ autonomous maintenance and intelligence cycle
+"on":
+  workflow_dispatch:
+  schedule:
+    # Run after the twice-daily production build windows. Scheduled runs are best-effort.
+    - cron: "47 6,18 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trihexomega-autonomous-cycle
+  cancel-in-progress: false
+
+jobs:
+  maintenance-and-review:
+    if: github.repository == '368Guardlux/TrihexoctAI'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the exact triggering commit without persisted credentials
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+          check-latest: false
+
+      - name: Install bounded CI dependencies
+        run: python -m pip install --disable-pip-version-check --requirement requirements-ci.txt
+
+      - name: Restore verified feed cache and advisory state
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            reports/trihexomega-feed-cache
+            reports/trihexomega-cache-controller.json
+            reports/trihexomega-cache-controller-last-report.json
+            reports/trihexomega-discovery-baseline.json
+            reports/trihexomega-source-health-history.json
+            reports/trihexomega-evolution-state.json
+          key: trihexomega-state-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            trihexomega-state-${{ runner.os }}-${{ github.ref_name }}-
+
+      - name: Validate package, workflows, and regression suite
+        run: |
+          set -euo pipefail
+          python tools/validate_trihexomega_pack.py
+          python tools/validate_workflows.py
+          python -m unittest discover -s tests -v
+          python tools/trihexomega/feedback_ledger.py verify --ledger reports/trihexomega-review-feedback.jsonl
+          python tools/trihexomega/doctor.py --output reports/trihexomega-doctor.json
+
+      - name: Run read-only maintenance and candidate-discovery cycle
+        if: github.ref == 'refs/heads/main'
+        env:
+          TRIHEXOMEGA_AI_API_KEY: ${{ secrets.TRIHEXOMEGA_AI_API_KEY }}
+          TRIHEXOMEGA_AI_MODEL: ${{ vars.TRIHEXOMEGA_AI_MODEL }}
+          TRIHEXOMEGA_AI_BASE_URL: ${{ vars.TRIHEXOMEGA_AI_BASE_URL || 'https://api.openai.com/v1' }}
+          TRIHEXOMEGA_AI_ALLOWED_HOSTS: ${{ vars.TRIHEXOMEGA_AI_ALLOWED_HOSTS || 'api.openai.com' }}
+        run: python tools/trihexomega/orchestrator.py --workers 8
+
+      - name: Run deterministic maintenance without model calls outside main
+        if: github.ref != 'refs/heads/main'
+        run: python tools/trihexomega/orchestrator.py --workers 8 --skip-ai
+
+      - name: Save verified cache and compact advisory state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            reports/trihexomega-feed-cache
+            reports/trihexomega-cache-controller.json
+            reports/trihexomega-cache-controller-last-report.json
+            reports/trihexomega-discovery-baseline.json
+            reports/trihexomega-source-health-history.json
+            reports/trihexomega-evolution-state.json
+          key: trihexomega-state-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}
+
+      - name: Upload cycle diagnostics (never upload raw feed cache)
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: trihexomega-cycle-${{ github.run_number }}
+          path: |
+            reports/trihexomega-cycle-report.json
+            reports/trihexomega-feed-cache-report.json
+            reports/trihexomega-source-health.json
+            reports/trihexomega-evolution-plan.json
+            reports/trihexomega-evolution-state.json
+            reports/trihexomega-learning-report.json
+            reports/trihexomega-drift-report.json
+            reports/trihexomega-triage-report.json
+            reports/trihexomega-discovery-report.json
+            reports/trihexomega-candidate-proposals.json
+            reports/trihexomega-candidate-proposals-screened.json
+            reports/trihexomega-policy-screen.json
+            reports/trihexomega-swarm-review.json
+            reports/trihexomega-doctor.json
+          if-no-files-found: warn
+          retention-days: 30
